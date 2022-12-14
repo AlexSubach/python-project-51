@@ -1,11 +1,16 @@
 import os
 import requests
+import logging
 from page_loader.html_parser import update_html_info
 from page_loader.rename import get_name_local
 from page_loader.downloader import downland_resources
 
 
 def download(url, dir_path=os.getcwd()):
+    logging.basicConfig(level='INFO')
+    logger = logging.getLogger(__name__)
+    logger.info(f'Request_url: {url}')
+    logger.info(f'Output_path: {dir_path}')
     response = requests.get(url)
     html = response.text
     html_name = get_name_local(url, ext='.html')
@@ -17,8 +22,9 @@ def download(url, dir_path=os.getcwd()):
     if url_file:
         directory_path = os.path.join(dir_path, dir_files_name)
         os.makedirs(directory_path, exist_ok=True)
+        logger.info(f'Downloading resources...')
         downland_resources(url_file, directory_path)
+
+    logger.info(f'All resources downloaded!')
+    logger.info(f"Page was downloaded as: '{html_path}'")
     return html_path
-
-
-# print(download('https://dota2.ru/articles/26289-immortal-dozornyj-14-3-odnoj-fissure-torontotokyo-opustilsya-do-top-250-evropy-a-larl-voshjol-v-top-30/', '/Users/alexsubach/dota'))

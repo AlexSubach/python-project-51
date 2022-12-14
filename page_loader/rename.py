@@ -25,4 +25,3 @@ def get_name_local(url, ext='.html'):
 
 def is_local(full_url, url):
     return urlparse(full_url).netloc == urlparse(url).netloc
-
