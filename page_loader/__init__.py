@@ -1,2 +1,3 @@
-from page_loader.page_loader import download
-from page_loader.rename import get_rename, get_path
+from page_loader.loader import download
+
+__all__ = ['download']

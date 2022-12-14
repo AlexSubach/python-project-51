@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from page_loader.page_loader import download
+from page_loader.loader import download
 from page_loader.cli import pars
 
 

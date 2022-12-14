@@ -2,26 +2,27 @@ from urllib.parse import urlparse
 import os
 
 
-def cut_url(url):
-    url_parser = urlparse(url)
-    clear_url = url_parser.netloc + url_parser.path
-    return clear_url
-
-
 def get_rename(url):
     name = ''
     indent = '-'
-    clear_url = cut_url(url)
-    for char in clear_url:
+    clear_name = url.rstrip('/')
+    for char in clear_name:
         if char.isalnum():
             name += char
         else:
             name += indent
-    return name + '.html'
+    return name
 
 
-def get_path(path, url):
-    rename_file = get_rename(url)
-    new_path = os.path.join(path, rename_file)
-    return new_path
+def get_name_local(url, ext='.html'):
+    url_parser = urlparse(url)
+    root, extension = os.path.splitext(url_parser.path)
+    path = get_rename(os.path.join(url_parser.netloc + root))
+    if extension:
+        ext = extension
+    return path + ext
+
+
+def is_local(full_url, url):
+    return urlparse(full_url).netloc == urlparse(url).netloc
 
