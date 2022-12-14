@@ -16,3 +16,5 @@
 
 Пример использования программы:
 [![asciicast](https://asciinema.org/a/C9I90oBguSzC0KX7pHL0fBExa.svg)](https://asciinema.org/a/C9I90oBguSzC0KX7pHL0fBExa)
+Пример сохранения всех файлов страницы и изменения кода страницы на локальные файлы:
+[![asciicast](https://asciinema.org/a/XjrY4g3b35gNdx6mO8Aim1X3n.svg)](https://asciinema.org/a/XjrY4g3b35gNdx6mO8Aim1X3n)

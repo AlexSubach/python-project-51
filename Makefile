@@ -1,9 +1,9 @@
 lint:
 	poetry run flake8
 test:
-	poetry run pytest
+	poetry run pytest -vv
 test-coverage:
-	poetry run pytest --cov=gendiff --cov-report xml
+	poetry run pytest --cov=page-loader --cov-report xml
 restart: install build package-reinstall
 install:
 	poetry install
