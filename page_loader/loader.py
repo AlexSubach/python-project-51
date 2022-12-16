@@ -1,14 +1,15 @@
 import os
 import requests
-import logging
 from page_loader.html_parser import update_html_info
 from page_loader.rename import get_name_local
 from page_loader.downloader import downland_resources
+from page_loader import logger_config
+
+
+logger = logger_config.make_logger(__name__)
 
 
 def download(url, dir_path=os.getcwd()):
-    logging.basicConfig(level='INFO')
-    logger = logging.getLogger(__name__)
     logger.info(f'Request_url: {url}')
     logger.info(f'Output_path: {dir_path}')
     response = requests.get(url)
