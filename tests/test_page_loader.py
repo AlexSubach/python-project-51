@@ -16,6 +16,5 @@ def test_download(local_html, update_html, download_img):
         with requests_mock.Mocker() as m:
             m.get('https://ru.hexlet.io/courses', text=local_html)
             result = loader.download('https://ru.hexlet.io/courses', temp_dir)
-            
             open_result = read_file(result)
             assert html_file == open_result
