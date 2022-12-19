@@ -15,7 +15,8 @@ def main():
         output_path = download(url_page, output)
     except Exception as error:
         logger.exception(error)
-        print('See log file for details')
+        print('Sorry, there was an error!')
+        print('See log.file for details')
         sys.exit(1)
     print(output_path)
 

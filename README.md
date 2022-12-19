@@ -20,3 +20,5 @@
 [![asciicast](https://asciinema.org/a/XjrY4g3b35gNdx6mO8Aim1X3n.svg)](https://asciinema.org/a/XjrY4g3b35gNdx6mO8Aim1X3n)
 Пример использования программы с выводом логов:
 [![asciicast](https://asciinema.org/a/t4dZqbs1Qp8IuOzAh5C8GCNvF.svg)](https://asciinema.org/a/t4dZqbs1Qp8IuOzAh5C8GCNvF)
+Пример использования программы с выводом логов об ошибках:
+[![asciicast](https://asciinema.org/a/hR5WgTzacxDV5mLNCmtrwIYQA.svg)](https://asciinema.org/a/hR5WgTzacxDV5mLNCmtrwIYQA)

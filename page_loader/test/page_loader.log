@@ -1,0 +1,14 @@
+2022-12-19 23:14:21,801 : page_loader.loader : INFO : loader.py : Request_url: https://guides.hexlet.io/ru/cryptograp/1
+2022-12-19 23:14:21,801 : page_loader.loader : INFO : loader.py : Output_path: /Users/alexsubach/python-project-51/page_loader/test
+2022-12-19 23:14:22,011 : page_loader.loader : ERROR : loader.py : HTTPError!
+2022-12-19 23:14:22,011 : page_loader.scripts.page_loader : ERROR : page_loader.py : 404 Client Error: Not Found for url: https://guides.hexlet.io/ru/cryptograp/1/
+Traceback (most recent call last):
+  File "/Users/alexsubach/python-project-51/venv/lib/python3.10/site-packages/page_loader/scripts/page_loader.py", line 15, in main
+    output_path = download(url_page, output)
+  File "/Users/alexsubach/python-project-51/venv/lib/python3.10/site-packages/page_loader/loader.py", line 24, in download
+    raise error
+  File "/Users/alexsubach/python-project-51/venv/lib/python3.10/site-packages/page_loader/loader.py", line 18, in download
+    response.raise_for_status()
+  File "/Users/alexsubach/python-project-51/venv/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://guides.hexlet.io/ru/cryptograp/1/
