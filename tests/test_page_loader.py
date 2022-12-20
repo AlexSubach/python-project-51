@@ -1,20 +1,32 @@
 import tempfile
 import os
+from urllib.parse import urljoin
 import requests_mock
+
 from page_loader import loader
 
 
-def read_file(path):
-    with open(path, mode='r') as file:
+def read_file(path, flag='r'):
+    with open(path, flag) as file:
         return file.read()
 
 
-def test_download(before_html, update_html, img):
-    html_file = read_file(update_html)
+url = 'https://ru.hexlet.io/courses'
+
+
+def test_download(before_html, update_html, png, css, js, inner_html):
     with tempfile.TemporaryDirectory() as tmpdirname:
-        temp_dir = f"{os.path.abspath(tmpdirname)}"
         with requests_mock.Mocker() as m:
-            m.get('https://ru.hexlet.io/courses', text=before_html)
-            result = loader.download('https://ru.hexlet.io/courses', temp_dir)
-            open_result = read_file(result)
-            assert html_file == open_result
+            m.get(urljoin(url, '/assets/professions/python.png'), content=read_file(png, 'rb'))
+            m.get(urljoin(url, '/assets/application.css'), text=read_file(css))
+            m.get(urljoin(url, '/packs/js/runtime.js'), text=read_file(js))
+            m.get(urljoin(url, '/courses'), text=read_file(inner_html))
+            m.get(url, text=read_file(before_html))
+
+            result_path = loader.download(url, tmpdirname)
+            expected_path = os.path.join(tmpdirname, 'ru-hexlet-io-courses.html')
+            assert result_path == expected_path
+
+            result_content = read_file(result_path)
+            expected_content = read_file(update_html)
+            assert result_content == expected_content
