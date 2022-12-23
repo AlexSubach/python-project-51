@@ -3,7 +3,7 @@ lint:
 test:
 	poetry run pytest -vv
 test-coverage:
-	poetry run pytest --cov=page-loader --cov-report xml
+	poetry run pytest --cov=page_loader --cov-report xml
 restart: install build package-reinstall
 install:
 	poetry install

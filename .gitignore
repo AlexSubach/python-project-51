@@ -3,7 +3,7 @@
 venv/
 dist/
 __pycache__
-.coverage
+.coverage.html
 coverage.xml
 .pytest_cache/
 .DS_Store
