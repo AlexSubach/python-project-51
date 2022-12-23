@@ -1,9 +1,9 @@
 lint:
-	poetry run flake8
+	poetry run flake8 page_loader
 test:
 	poetry run pytest -vv
 test-coverage:
-	poetry run pytest --cov=page_loader --cov-report xml
+	poetry run pytest --cov=page_loader --cov-report xml tests/
 restart: install build package-reinstall
 install:
 	poetry install
