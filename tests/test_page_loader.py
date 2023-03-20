@@ -1,5 +1,6 @@
 import tempfile
 import os
+import pytest
 from urllib.parse import urljoin
 import requests_mock
 
@@ -30,3 +31,5 @@ def test_download(before_html, update_html, png, css, js, inner_html):
             result_content = read_file(result_path)
             expected_content = read_file(update_html)
             assert result_content == expected_content
+            assert m.call_count == 5
+

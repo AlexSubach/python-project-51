@@ -2,7 +2,7 @@
 import sys
 
 from page_loader.loader import download
-from page_loader.cli import pars
+from page_loader.cli import parse_args
 from page_loader.logger_config import make_logger
 
 
@@ -10,7 +10,7 @@ logger = make_logger(__name__)
 
 
 def main():
-    url_page, output = pars()
+    url_page, output = parse_args()
     try:
         output_path = download(url_page, output)
     except Exception as error:

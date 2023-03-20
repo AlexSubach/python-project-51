@@ -2,7 +2,7 @@ import argparse
 import os
 
 
-def pars():
+def parse_args():
     parser = argparse.ArgumentParser(description='Page Loader Utilita')
     parser.add_argument('url_page', type=str)
     parser.add_argument('-o', '--output',
